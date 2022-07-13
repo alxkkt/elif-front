@@ -3,14 +3,29 @@ import styles from "./ShopMenu.module.scss";
 
 import { useGetProductsQuery } from "../../redux/products/products";
 
-const ShopMenu = () => {
-  const { data, isSuccess } = useGetProductsQuery();
+const ShopMenu = ({ data, isSuccess, handleClick }) => {
+  const [activeIdx, setActiveIdx] = useState(0);
 
-  const elements = data?.map(({ id, company, logo }) => {
+  const getIdx = (idx) => {
+    setActiveIdx(idx);
+    handleClick(idx);
+  };
+
+  const getActiveItem = (actIndex, itemIdx) => {
+    return actIndex === itemIdx
+      ? `${styles.item} ${styles.itemActive}`
+      : `${styles.item}`;
+  };
+  // const { data, isSuccess, isFetching } = useGetProductsQuery();
+
+  const elements = data?.map(({ id, company }, index) => {
     return (
-      <li key={id} className={styles.item}>
+      <li
+        key={id}
+        className={getActiveItem(activeIdx, index)}
+        onClick={() => getIdx(index)}
+      >
         {company}
-        {logo}
       </li>
     );
   });

@@ -1,26 +1,19 @@
 import styles from "./ProductsMenu.module.scss";
 
-const ProductsMenu = () => {
+const ProductsMenu = ({ items, isSuccess }) => {
+  console.log(items);
+  const elements = items?.map(({ price, name, id }) => {
+    return (
+      <li key={id}>
+        <p>
+          {name}: {price}
+        </p>
+      </li>
+    );
+  });
   return (
     <section className={styles.productsMenu}>
-      <ul className={styles.productsList}>
-        <li className={styles.productsListItem}>Product</li>
-        <li className={styles.productsListItem}>Product</li>
-        <li className={styles.productsListItem}>Product</li>
-        <li className={styles.productsListItem}>Product</li>
-        <li className={styles.productsListItem}>Product</li>
-        <li className={styles.productsListItem}>Product</li>
-        <li className={styles.productsListItem}>Product</li>
-        <li className={styles.productsListItem}>Product</li>
-        <li className={styles.productsListItem}>Product</li>
-        <li className={styles.productsListItem}>Product</li>
-        <li className={styles.productsListItem}>Product</li>
-        <li className={styles.productsListItem}>Product</li>
-        <li className={styles.productsListItem}>Product</li>
-        <li className={styles.productsListItem}>Product</li>
-        <li className={styles.productsListItem}>Product</li>
-        <li className={styles.productsListItem}>Product</li>
-      </ul>
+      <ul className={styles.productsList}>{isSuccess && elements}</ul>
     </section>
   );
 };

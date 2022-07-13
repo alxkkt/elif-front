@@ -1,13 +1,35 @@
 .sign {
   text-align: center;
+  margin-bottom: 10px;
 }
 
 .shopsMenu {
   width: 20%;
   outline: 1px solid black;
+  padding: 10px;
+
+  overflow: scroll;
 }
 
 .shopsList {
   display: grid;
   place-items: center;
+}
+
+.item {
+  display: grid;
+  place-items: center;
+  width: 200px;
+  height: 60px;
+
+  outline: 1px solid blue;
+  cursor: pointer;
+}
+
+.item:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.itemActive {
+  background-color: rgb(225, 225, 225);
 }
