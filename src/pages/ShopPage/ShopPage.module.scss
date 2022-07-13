@@ -1,0 +1,39 @@
+.wrapper {
+  display: flex;
+  outline: 1px solid tomato;
+
+  height: 70vh;
+}
+
+.sign {
+  text-align: center;
+}
+
+.shopsMenu {
+  width: 20%;
+  outline: 1px solid black;
+}
+
+.shopsList {
+  display: grid;
+  place-items: center;
+}
+
+.productsMenu {
+  outline: 1px solid black;
+  margin-left: auto;
+  width: 70%;
+
+  overflow: scroll;
+}
+
+.productsList {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 20px;
+  place-items: center;
+}
+
+.productsListItem {
+  height: 80px;
+}

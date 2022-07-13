@@ -1,5 +1,9 @@
 const CartPage = () => {
-  return <div>CartPage</div>;
+  return (
+    <main className="container">
+      <div>CartPage</div>
+    </main>
+  );
 };
 
 export default CartPage;
