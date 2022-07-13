@@ -1,41 +1,18 @@
-import NavMenu from "../../components/NavMenu/NavMenu";
+import ShopMenu from "../../components/ShopMenu/ShopMenu";
+import ProductsMenu from "../../components/ProductsMenu/ProductsMenu";
+
+import { useGetProductsQuery } from "../../redux/products/products";
 
 import styles from "./ShopPage.module.scss";
 
 const ShopPage = () => {
+  const { data, isSuccess } = useGetProductsQuery();
+
   return (
     <main className="container">
       <div className={styles.wrapper}>
-        <section className={styles.shopsMenu}>
-          <h3 className={styles.sign}>Shops</h3>
-          <ul className={styles.shopsList}>
-            <li>Shop</li>
-            <li>Shop</li>
-            <li>Shop</li>
-            <li>Shop</li>
-            <li>Shop</li>
-          </ul>
-        </section>
-        <section className={styles.productsMenu}>
-          <ul className={styles.productsList}>
-            <li className={styles.productsListItem}>Product</li>
-            <li className={styles.productsListItem}>Product</li>
-            <li className={styles.productsListItem}>Product</li>
-            <li className={styles.productsListItem}>Product</li>
-            <li className={styles.productsListItem}>Product</li>
-            <li className={styles.productsListItem}>Product</li>
-            <li className={styles.productsListItem}>Product</li>
-            <li className={styles.productsListItem}>Product</li>
-            <li className={styles.productsListItem}>Product</li>
-            <li className={styles.productsListItem}>Product</li>
-            <li className={styles.productsListItem}>Product</li>
-            <li className={styles.productsListItem}>Product</li>
-            <li className={styles.productsListItem}>Product</li>
-            <li className={styles.productsListItem}>Product</li>
-            <li className={styles.productsListItem}>Product</li>
-            <li className={styles.productsListItem}>Product</li>
-          </ul>
-        </section>
+        <ShopMenu />
+        <ProductsMenu goods={data?.goods} />
       </div>
     </main>
   );

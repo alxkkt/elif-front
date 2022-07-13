@@ -1,0 +1,8 @@
+import { configureStore } from "@reduxjs/toolkit";
+import { productsApi } from "./products/products";
+
+export const store = configureStore({
+  reducer: {
+    [productsApi.reducerPath]: productsApi.reducer,
+  },
+});
